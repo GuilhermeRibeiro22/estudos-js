@@ -9,7 +9,7 @@
 
 <body>
 
-    <input id="botao" type="button" value="Clique-me" onclick="mudarhtml()">
+    <input id="entrada" type="button" value="Clique-me" onkeyup="mudarhtml()">
 
     <br><br>
 
@@ -20,8 +20,8 @@
 
     <script>
         function mudarhtml() {
-            resultado.innerHTML = "Texto mágico apareceu aqui";
-            botao.value = "Você clicou!";
+            resultado.innerHTML = entrada.value;
+            
 
 
         }
