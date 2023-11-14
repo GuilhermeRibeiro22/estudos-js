@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculadora do Amor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container-fluid d-flex justify-content-center mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Calculadora do Amor</h1>
+                </div>
+
+            </div>
+        </div>
+        <div class="container-fluid mt-3">
+            <div class="row m-2">
+                <div class="col-6 mx-4">
+                    <input type="text" class="form-control" placeholder="Nome do Parceiro 1"
+                        aria-label="Recipient's username" aria-describedby="button-addon2" id="nome1">
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-6 mx-4">
+                    <input type="text" class="form-control" placeholder="Nome do Parceiro 2"
+                        aria-label="Recipient's username" aria-describedby="button-addon2" id="nome2">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid  mx-5">
+            <div class="row">
+                <div class="col">
+                    <button class="btn bg-danger text-white" type="button" id="button-addon2"
+                        onclick="calcula()">Calcular</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="container-fluid mt-5">
+            <div class="row mx-4">
+                <div class="col">
+                    <h2>Resultado</h2>
+                </div>
+            </div>
+            <div class="row mx-4">
+                <div class="col">
+                    <p>Nome 1: <span id="infonome1"></span><br>
+                        Nome 2: <span id="infonome2"></span><br>
+                        Combinação: <span id="infocom"></span><br>
+                        Porcentagem do Amor: <span id="infopercent"></span><br>
+                        Sugestão: <span id="infosugestao"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function calcula() {
+            var link = "https://apisenac.estevaorada.repl.co/api/amor/" + nome1.value + "/" + nome2.value;
+
+            fetch(link).then((resposta) => resposta.json()).then(
+                (dados) => {
+                    infonome1.innerHTML = dados.nome1;
+                    infonome2.innerHTML = dados.nome2;
+                    infocom.innerHTML = dados.combinacao;
+                    infopercent.innerHTML = dados.porcentagemAmor;
+                    infosugestao.innerHTML = dados.sugestao;
+                }
+            )
+
+        }
+
+    </script>
+</body>
+
+</html>

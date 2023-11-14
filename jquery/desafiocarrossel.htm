@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel</title>
+
+
+
+    <style>
+        .carousel {
+            background-image: url(fotospace1.jpeg);
+            min-height: 1000px;
+            background-position: center;
+            background-size: cover;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <button id="anterior">Anterior</button>
+        <button id="proximo">Próximo</button>
+
+
+
+
+
+
+    </div>
+
+    <!-- Minha tentaiva -->
+    <!-- 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <img src="fotospace1.jpeg" id="img1"><br>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button class="botoes" id="anterior"> Anterior </button>
+                <button class="botoes" id="proximo"> Próximo </button>
+            </div>
+
+        </div>
+    </div> -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        var fotos = ["fotospace1.jpeg", "fotospace2.jpeg", "fotospace3.jpeg"]
+        var c = 0;
+
+        $("#proximo").on("click", function () {
+            c++;
+            // Resetar contador:
+            if (c == fotos.length) {
+                c = 0;
+            }
+            $(".carousel").css("background-image", "url(" + fotos[c] + ")").hide().fadeIn();
+        })
+
+        $("#anterior").on("click", function () {
+            c--;
+            // Resetar contador:
+            if (c == -1) {
+                c = fotos.length-1;
+            }
+            $(".carousel").css("background-image", "url(" + fotos[c] + ")").hide().fadeIn();
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Tentativas minhas
+
+        // var n = 0;
+        // var fotos = ["fotospace1.jpeg", "fotospace2.jpeg"];
+
+        // $("#proximo").on("click", function () {
+        //     $("#img1").attr("src", "fotospace2.jpeg");
+        // })
+
+        // $("#anterior").on("click", function () {
+        //     $("#img1").attr("src", "fotospace1.jpeg");
+
+        // })
+
+        //  $("#proximo").on("click", function () {
+        //     $("#img1").attr("src", "fotospace2.jpeg");
+
+        //     // Incrementar o n
+        //     n++;
+
+        //     if (n == 2){
+        //         n = 0;
+        //     }
+
+        // })
+
+    </script>
+
+</body>
+
+</html>

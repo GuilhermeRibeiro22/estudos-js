@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Exemplo</title>
+</head>
+
+<body>
+    <h1 id="texto1">Texto 1</h1>
+    <h1 id="texto2">Texto 2</h1>
+    <p class="paragrafo">Texto do parágrafo 1.</p>
+    <p class="paragrafo">Texto do parágrafo 2.</p>
+    <button id="botao">Clique-me!</button>
+    <input type="text" id="entrada">
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+    <script>
+
+        $("#botao").on("click", function () {
+            $("#texto1").text("Mudei o texto");
+            // $("#texto2").fadeOut("slow");
+            $(".paragrafo").text("Texto novo");
+            $("#texto1").css('background-color', 'green');
+            $("#texto2").css('color', 'red');
+            // Obter valor de entrada
+            var x = $("#entrada").val();
+            alert(x);
+        });
+
+
+    </script>
+</body>
+
+</html>

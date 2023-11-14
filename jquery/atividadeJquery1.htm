@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Página Motivacional</title>
+
+    <style>
+        .blockquote{
+            min-height: 140px;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-center">
+                <img src="https://i.imgur.com/GFCJGK0.png" alt="Imagem Motivacional" class="img-fluid">
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <h2>Fique Motivadão</h2>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <blockquote class="blockquote text-center ">
+                    <p class="font-weight-light font-italic display-4" id="frase">"Frase motivacional dahora obtida do
+                        API."</p>
+                </blockquote>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <button class="btn btn-success btn-block" id="novaFrase">Me motive mais</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Importe o jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Seu código vai aqui:
+
+        // Evento quando o botão #novaFrase for clicado
+        $("#novaFrase").on("click", function () {
+            //Esconder os elemntos:
+            $("#frase").hide();
+
+            var link = "https://apisenac.estevaorada.repl.co/api/motivacionais";
+            $.getJSON(link).done(function (dados) {
+                $("#frase").text(dados.frase).fadeIn();
+
+            })
+
+
+
+        })
+        // Evento a ser executado assim que a página for carregada:
+        $(document).ready(function(){
+            // Simular o clique no #novaFrase:
+            $("#novaFrase").trigger("click");
+        })
+
+    </script>
+
+</body>
+
+</html>
